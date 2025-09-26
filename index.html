@@ -14,6 +14,60 @@
             background-color: #0d1117; /* Dark background for a tech feel */
             color: #c9d1d9; /* Light text */
             min-height: 100vh;
+            /* Add a subtle visual transition on elements */
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* --- Custom Scrollbar Styling (for a better dark theme feel) --- */
+        body::-webkit-scrollbar {
+            width: 8px;
+        }
+        body::-webkit-scrollbar-track {
+            background: #1f2937; /* Darker track */
+        }
+        body::-webkit-scrollbar-thumb {
+            background-color: #22d3ee; /* Cyan color */
+            border-radius: 20px;
+            border: 2px solid #1f2937;
+        }
+
+        /* --- Keyframe Animation for Header Text Glow (updated to Cyan) --- */
+        @keyframes subtleGlow {
+            0%, 100% { text-shadow: 0 0 5px rgba(34, 211, 238, 0.3); } /* Cyan shadow */
+            50% { text-shadow: 0 0 12px rgba(94, 234, 212, 0.7); } /* Lighter Cyan/Teal shadow */
+        }
+
+        .hero-text-glow {
+            animation: subtleGlow 4s ease-in-out infinite;
+        }
+
+        /* --- Keyframe Animation for Avatar Pulse/Spin on hover --- */
+        @keyframes avatarPulse {
+            0% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.05) rotate(5deg); }
+            100% { transform: scale(1) rotate(0deg); }
+        }
+
+        .avatar-pulse:hover {
+            animation: avatarPulse 0.8s ease-in-out;
+            cursor: pointer; /* Indicate it's interactive */
+        }
+
+        /* --- Card Hover Effect (Lift and Shadow Glow) --- */
+        .card-hover-effect {
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, border-color 0.3s ease-out;
+        }
+
+        .card-hover-effect:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px -5px rgba(34, 211, 238, 0.4), 0 5px 15px -5px rgba(34, 211, 238, 0.2); /* Cyan shadow lift */
+            border-color: #22d3ee; /* Cyan border glow */
+        }
+
+        /* Enhance hover state for interactive elements */
+        a:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
         }
     </style>
 </head>
@@ -24,15 +78,16 @@
 
         <!-- Header/Hero Section -->
         <header class="text-center py-16 bg-gray-800 rounded-2xl shadow-2xl">
-            <!-- Profile Avatar Placeholder -->
-            <div class="mx-auto w-24 h-24 bg-indigo-500 rounded-full flex items-center justify-center mb-4 border-4 border-indigo-300">
+            <!-- Profile Avatar Placeholder - Color and animation added -->
+            <div class="mx-auto w-24 h-24 bg-cyan-500 rounded-full flex items-center justify-center mb-4 border-4 border-cyan-300 avatar-pulse">
                 <span class="text-3xl font-extrabold text-white">AG</span>
             </div>
             
-            <h1 class="text-4xl sm:text-6xl font-extrabold text-white mb-2">
+            <h1 class="text-4xl sm:text-6xl font-extrabold text-white mb-2 hero-text-glow">
                 Aswathy Girish
             </h1>
-            <p class="text-xl sm:text-2xl text-indigo-400 font-medium">
+            <!-- Accent color updated to cyan-400 -->
+            <p class="text-xl sm:text-2xl text-cyan-400 font-medium">
                 Computer Science Engineering Student
             </p>
         </header>
@@ -40,55 +95,60 @@
         <!-- About and Location Section -->
         <section class="grid md:grid-cols-2 gap-8">
             
-            <!-- Education Card -->
-            <div class="p-8 bg-gray-800 rounded-xl shadow-lg hover:shadow-indigo-500/50 transition duration-300 border border-gray-700">
+            <!-- Education Card - Added new hover effect class -->
+            <div class="p-8 bg-gray-800 rounded-xl shadow-lg border border-gray-700 card-hover-effect">
                 <h2 class="text-3xl font-bold text-white mb-4 flex items-center">
-                    <!-- Icon: School/Graduation Cap -->
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 mr-3 text-indigo-400"><path d="M4 11v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-6"/><path d="m12 3 8 4-8 4-8-4 8-4z"/><path d="M4 15v-4"/><path d="M20 15v-4"/></svg>
+                    <!-- Icon color updated to cyan-400 -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 mr-3 text-cyan-400"><path d="M4 11v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-6"/><path d="m12 3 8 4-8 4-8-4 8-4z"/><path d="M4 15v-4"/><path d="M20 15v-4"/></svg>
                     Education
                 </h2>
                 <p class="text-gray-300 text-lg">
                     I am currently pursuing my degree in **Computer Science Engineering** at:
                 </p>
-                <p class="text-2xl font-semibold text-indigo-300 mt-2">
+                <!-- Accent color updated to cyan-300 -->
+                <p class="text-2xl font-semibold text-cyan-300 mt-2">
                     Vidya Academy of Science and Technology
                 </p>
             </div>
 
-            <!-- Location Card -->
-            <div class="p-8 bg-gray-800 rounded-xl shadow-lg hover:shadow-indigo-500/50 transition duration-300 border border-gray-700">
+            <!-- Location Card - Added new hover effect class -->
+            <div class="p-8 bg-gray-800 rounded-xl shadow-lg border border-gray-700 card-hover-effect">
                 <h2 class="text-3xl font-bold text-white mb-4 flex items-center">
-                    <!-- Icon: Location Pin -->
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 mr-3 text-indigo-400"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <!-- Icon color updated to cyan-400 -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 mr-3 text-cyan-400"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
                     Location
                 </h2>
                 <p class="text-gray-300 text-lg">
                     I am based in the cultural capital of Kerala:
                 </p>
-                <p class="text-2xl font-semibold text-indigo-300 mt-2">
+                <!-- Accent color updated to cyan-300 -->
+                <p class="text-2xl font-semibold text-cyan-300 mt-2">
                     Thrissur, Kerala, India
                 </p>
             </div>
         </section>
         
-        <!-- Placeholder for Skills/Projects (Key next steps!) -->
+        <!-- Placeholder for Skills/Projects -->
         <section class="p-8 bg-gray-800 rounded-xl shadow-lg border border-gray-700">
             <h2 class="text-3xl font-bold text-white mb-6">
                 Skills & Projects
             </h2>
             <div class="space-y-4">
                 <div class="p-4 bg-gray-700 rounded-lg border border-gray-600">
-                    <h3 class="text-xl font-semibold text-indigo-300">My Focus Areas:</h3>
+                    <!-- Accent color updated to cyan-300 -->
+                    <h3 class="text-xl font-semibold text-cyan-300">My Focus Areas:</h3>
                     <p class="text-gray-400">
                         This is where you can list your key programming languages (e.g., Python, Java, C++), technologies (e.g., HTML, CSS, React, SQL), and areas of interest (e.g., Web Development, Machine Learning).
                     </p>
                 </div>
                 <div class="p-4 bg-gray-700 rounded-lg border border-gray-600">
-                    <h3 class="text-xl font-semibold text-indigo-300">Featured Project (Title):</h3>
+                    <!-- Accent color updated to cyan-300 -->
+                    <h3 class="text-xl font-semibold text-cyan-300">Featured Project (Title):</h3>
                     <p class="text-gray-400">
                         Describe your best project here! What problem did it solve? What technologies did you use? Always link to the live demo or GitHub repository.
                     </p>
-                    <a href="#" class="text-indigo-400 hover:text-indigo-300 mt-2 inline-block font-medium">View Project on GitHub &rarr;</a>
+                    <!-- Accent color updated to cyan-400 -->
+                    <a href="#" class="text-cyan-400 hover:text-cyan-300 mt-2 inline-block font-medium transition duration-150">View Project on GitHub &rarr;</a>
                 </div>
             </div>
         </section>
@@ -99,16 +159,16 @@
                 Connect with me!
             </p>
             <div class="flex justify-center space-x-6">
-                <!-- Placeholder Link 1: LinkedIn -->
-                <a href="#" class="text-indigo-400 hover:text-indigo-300 transition duration-150">
+                <!-- Accent color updated to cyan-400 -->
+                <a href="#" class="text-cyan-400 hover:text-cyan-300 transition duration-150">
                     <span class="font-semibold">LinkedIn</span>
                 </a>
-                <!-- Placeholder Link 2: GitHub -->
-                <a href="#" class="text-indigo-400 hover:text-indigo-300 transition duration-150">
+                <!-- Accent color updated to cyan-400 -->
+                <a href="#" class="text-cyan-400 hover:text-cyan-300 transition duration-150">
                     <span class="font-semibold">GitHub</span>
                 </a>
-                <!-- Placeholder Link 3: Email -->
-                <a href="mailto:your.email@example.com" class="text-indigo-400 hover:text-indigo-300 transition duration-150">
+                <!-- Accent color updated to cyan-400 -->
+                <a href="mailto:your.email@example.com" class="text-cyan-400 hover:text-cyan-300 transition duration-150">
                     <span class="font-semibold">Email</span>
                 </a>
             </div>
